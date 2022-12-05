@@ -7,13 +7,16 @@ import PropTypesObject from "./propTypes/PropTypesObject";
 import PropTypesFunc from "./propTypes/PropTypesFunc";
 import PropTypesInstanceOf from "./propTypes/PropTypesInstanceOf";
 import PropTypesOneOf from "./propTypes/PropTypesOneOf";
+import PracticePropsTypes from "./practice";
+
 
 const App = () => {
-  const user = new User(1,'Adit', 'Gunuk', '081289503000');
+  const user = new User(1, "Adit", "Gunuk", "081289503000");
   return (
     // <PropTypesString />
     // <PropTypesFunc onClick={()=>{alert('test')}}/>
-    <PropTypesOneOf mode="light"/>
+    // <PropTypesOneOf mode="light" />
+    <PracticePropsTypes/>
   );
 };
 
