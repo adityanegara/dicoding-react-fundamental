@@ -1,0 +1,70 @@
+A) Pentingnya Validasi Property
+    A.1) Permasalahan
+    : Javascript ialah bahasa pemrograman yang
+    'weak typing' artinya penggunaan tipe data
+    sangat longgar dalam penetapannya. Akibatnya
+    ialah apliaksi akan terus berjalan dan kelak
+    ini akan menghasilkan bug.
+
+    A.2) Contoh Weak Typing
+    : const sum = (a, b) =>{
+        return a+b;
+      }
+      sum(10,10) //benar
+      sum(true, false) //benar
+      sum('10', 10) //benar
+
+    A.3) Contoh String Typing
+    const sum = (a: number, b: number):number=>{
+        return a+b;
+    }  
+    sum(10,10) //benar
+    sum(true, false) //salah
+    sum('10', 10) //salah
+
+    A.4) Solusi
+    : Dibutuhkannya validasi tipe data. 
+    Agar terhindar dari bug.
+
+B) PropTypes API
+    : Sebuah library untuk type checking props. Tambahkan .required bila
+    mengingkan props required.
+
+    B.1) Syntax opsional
+    : <nama property>: PropTypes.<type>
+
+    B.2) Syntax required
+    : <nama property>: PropTypes.<type>.required
+
+    B.3) Contoh
+    : name: PropTypes.string.isRequired,
+
+    B.4) Daftar types pada PropTypes API
+    : 1) PropTypes.number
+      : Untuk nomor/angka.
+
+      2) PropTypes.bool
+      : Untuk tipe boolean (true/false).
+
+      3) PropTypes.array
+      : Untuk tipe array
+
+      4) PropTypes.arrayOf
+      : Untuk array yang mengandung tipe data spesifik. Contohnya
+      ialah array yang seluruh itemnya string.
+
+      5) PropTypes.object
+      : Untuk object.
+
+      6) PropTypes.objectOf
+      : Untuk objek yang seluruh propertinya memiliki satu tipe data
+      yang sama.
+
+      7) PropTypes.func
+      : Untuk function
+
+      8) PropTypes.instanceOf
+      : Untuk instance dari class tertentu.
+
+      9) PropTypes.oneOf
+      : Harus memenuhi salah satu nilai dari oneOf.
