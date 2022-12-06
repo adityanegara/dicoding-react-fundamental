@@ -1,0 +1,47 @@
+A) Web Routing
+    A.1) Cara kerja website
+    : 1) Pengguna mengunjungi situs http://www.booleanman.com. Browser
+         akan membuat request ke server booleanman
+      2) Server booleanman akan merespons dengan menghasilkan berkas
+         HTML yang digunakan untuk menampilkan halaman / (index).
+      3) Bila pengguna berpindah halaman contoh http://booleanman.com/about,
+         browser akan kembali membuat request ke booleanman.
+      4) Server booleanman akan merespons dengan berkas HTML
+         baru yang digunakan untuk menampilkan halaman/about
+
+    A.2) Single Page Application
+    : Aplikasi web dimana ia mengunduh  seluruh konten website sekaligus, dimana
+    menampilkannya berdasarkan permintaan pengguna dengan kontrol JavaScript. Bila
+    SPA berpindah halaman, browser tidak perlu memuat ulang (reload). 
+
+B) React Router
+   : Library untuk react yang berfungsi mengelola navigasi, dan URL.
+
+   B.1) Instalasi
+   : npm install react-router-dom
+
+   B.2) Component BrowserRouter
+   : Pembungkus untuk seluruh cakupan aplikasi yang memanfaatkan routing. 
+   Ia mengatur dan mengawasi perubahan URL guna memastikan komponent atau halaman
+   tampil sesuai dengan perubahannya.
+
+      B.2.1) import
+      : import {BrowserRouter} from 'react-router-dom';
+       
+      B.2.2) Pengunaan
+      : <BrowserRouter> {Component lainnya} </BrowserRouter>
+
+   B.3) Link
+   : Untuk menavigasi halaman selama berada di aplikasi. 
+      
+      B.3.1) import
+      : import { Link } from 'react-router-dom'
+
+      B.3.2) Synttax 
+      : <Link to={url}/>{component}</Link>
+
+      B.3.3) Contoh
+      : <Link to={/about}>About</Link>
+
+   B.4) Routes dan Route
+   : Mendefinisikan komponen atau halaman apa yang ditampilkan berdasarkan URL.
