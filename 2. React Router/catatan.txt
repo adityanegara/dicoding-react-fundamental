@@ -45,3 +45,57 @@ B) React Router
 
    B.4) Routes dan Route
    : Mendefinisikan komponen atau halaman apa yang ditampilkan berdasarkan URL.
+
+C) Path dan Query Parameter
+   C.1) Path parameter
+   :Teknik untuk mengirimkan atau menyisipkan sebuah data dengan memanfaatkan URL.
+
+   C.2) Path parameter pada React Router
+      C.2.1) Syntax
+      : <Router path="/<nama path>/:<nama parameter>" element={<Element>}/>
+
+      C.2.2) Contoh
+      : <Router path ="/linkedin/:adit" element={<ProfilePage/>}/>
+
+      C.2.3) Syntax Penggunaan
+      : import {useParams} from 'react-router-dom';
+
+        const <nama komponent>(){
+         const <nama variable> = useParams();
+        }
+      
+      C.2.3) Contoh Penggunaan
+      : import {useParams} from 'react-router-dom';
+        
+        const ProfilePage = () =>{
+         const pathParams = useParams();
+        }
+
+   C.3) Query Parameter
+   : Sama seperti path parameter. Teknik ini memiliki query format
+   'key=value'. Umum digunakan pada fitur pencarian atau filter data.
+   Query ini diawali dengan tanda ?. dan & untuk setiap parameternya.
+
+      C.3.1) Contoh
+      : /company/search?name=apple&location=cuppertino
+      akan mengirimkan
+      -name = apple
+      -location = cuppertino
+
+   C.4) Query Parameter pada react-router
+      C.4.1) Syntax
+      : import {useSearchParams} from 'react-router-dom';
+
+         const <nama komponen> = () =>{
+            const [<nama search params>, <nama setter seach params>] = useSearchParams();
+         }
+
+      C.4.2) Contoh
+      :  import {useSearchParams} from 'react-router-dom';
+      
+         const CompanySearchPage = () =>{
+            const [searchParams, setSearchParams] = useSearchParams();
+         }
+
+      C.4.3) Contoh Penggunaan
+      : const name = searchParams.get('name');
