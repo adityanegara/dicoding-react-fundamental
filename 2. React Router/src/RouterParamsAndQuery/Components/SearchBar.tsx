@@ -1,11 +1,14 @@
 import React, { FormEvent, useState } from "react";
 
+
 interface SearchBarProps {
   search: (keyword: string) => void;
   defaultKeyword: string;
 }
 
 const SearchBar = ({ search, defaultKeyword }: SearchBarProps): JSX.Element => {
+
+
   const [keyword, setKeyword] = useState<string>(defaultKeyword);
 
   const onSubmitHandler = (event: FormEvent<HTMLFormElement>): void => {
@@ -27,6 +30,7 @@ const SearchBar = ({ search, defaultKeyword }: SearchBarProps): JSX.Element => {
           onKeywordChangeHandler(e.currentTarget.value);
         }}
       />
+      <button type="submit">Search</button>
     </form>
   );
 };

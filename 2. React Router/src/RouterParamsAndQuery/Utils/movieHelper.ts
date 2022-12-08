@@ -20,7 +20,10 @@ const getMovie = (movies: MovieModel[], id?: number): MovieModel | null => {
   return filteredMovies[0];
 };
 
-const searchMovies = (movies: MovieModel[], keyword: string): MovieModel[] => {
+const searchMovies = (movies: MovieModel[], keyword: string | null): MovieModel[] => {
+  if(!keyword){
+    return []
+  }
   return movies.filter((movie) =>
     movie.title.toLowerCase().includes(keyword.toLowerCase())
   );

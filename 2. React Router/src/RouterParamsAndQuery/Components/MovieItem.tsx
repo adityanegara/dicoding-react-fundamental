@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MovieModel from "../Models/IMovie";
 
 const MovieItem = ({
@@ -9,7 +10,7 @@ const MovieItem = ({
   return (
     <article>
       <img src={backdropPath} alt={title} />
-      <h3>{title}</h3>
+      <Link to={`/detail/${id}`}>{title}</Link>
       <p>{overview}</p>
     </article>
   );
