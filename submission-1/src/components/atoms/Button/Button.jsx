@@ -28,7 +28,6 @@ const StyledButton = styled("button")(
     borderRadius: "4px",
     border: "none",
     padding: "14px 24px",
-    color: "#fff",
     overflow: "hidden",
     position: "relative",
     cursor: "pointer",
@@ -43,6 +42,7 @@ const StyledButton = styled("button")(
         ? props.buttonHoverColor
         : props.theme.colors.neutral.gray,
     },
+    color : props.theme.colors.neutral.black,
   })
 );
 

@@ -11,6 +11,7 @@ const App = () => {
       <Global styles={global} />
       <Container screenSize="mobile">
         <Navbar title="Logger" />
+        
       </Container>
     </ThemeProvider>
   );
