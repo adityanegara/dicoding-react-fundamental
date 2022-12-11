@@ -2,9 +2,9 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import Button from "../atoms/Button/Button";
-import searchIcon from "../../assets/icons/search.png";
-import createIcon from "../../assets/icons/plus.png";
-import dotsIcon from "../../assets/icons/dots.png";
+import searchIcon from "../../assets/icons/search.svg";
+import createIcon from "../../assets/icons/plus.svg";
+import dotsIcon from "../../assets/icons/dots.svg";
 import { useTheme } from "@emotion/react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -13,6 +13,11 @@ const NavbarStyled = styled(motion.nav)({
   display: "flex",
   justifyContent: "flex-end",
   gap: "15px",
+});
+
+const ButtonIcon = styled.img({
+  width: "35px",
+  height: "35px",
 });
 
 const Tooltip = styled(motion.div)({
@@ -29,7 +34,7 @@ const TooltipContent = styled(motion.ul)(({ theme }) => ({
   marginTop: "0px",
   backgroundColor: theme.colors.neutral.gray,
   padding: "25px",
-  top: "60px",
+  top: "73px",
   left: "-30px",
   borderRadius: "10px",
   transform: "translate(-50%, 0)",
@@ -65,8 +70,13 @@ const buttonVariant = {
 const toolTipItemVariant = {
   visible: { opacity: 1, x: 0 },
   hidden: { opacity: 0, x: -100 },
-  exit: { opacity: 0},
+  exit: { opacity: 0 },
 };
+
+const TooltipParagraph = styled.p({
+  fontWeight: "bold",
+  fontSize: "1.2em",
+});
 
 const Navbar = () => {
   const [isTooltipOpen, setTooltipOpen] = useState(false);
@@ -81,25 +91,23 @@ const Navbar = () => {
         variants={navbarVariant}
       >
         <motion.li variants={toolTipItemVariant}>
-          {" "}
           <Button
             onClick={() => {}}
             buttonColor={theme.colors.neutral.gray}
             buttonHoverColor={theme.colors.neutral.darkGray}
             role="search-button"
           >
-            All
+            <TooltipParagraph>All</TooltipParagraph>
           </Button>
         </motion.li>
         <motion.li variants={toolTipItemVariant}>
-          {" "}
           <Button
             onClick={() => {}}
             buttonColor={theme.colors.neutral.gray}
             buttonHoverColor={theme.colors.neutral.darkGray}
             role="search-button"
           >
-            Archived
+            <TooltipParagraph>Archived</TooltipParagraph>
           </Button>
         </motion.li>
       </TooltipContent>
@@ -115,7 +123,7 @@ const Navbar = () => {
             buttonHoverColor={theme.colors.primary.darker}
             role="search-button"
           >
-            <img src={searchIcon} alt="search-icon" />
+            <ButtonIcon src={searchIcon} alt="search-icon" />
           </Button>
         </motion.div>
         <motion.div variants={buttonVariant}>
@@ -125,7 +133,7 @@ const Navbar = () => {
             buttonHoverColor={theme.colors.primary.darker}
             role="create-button"
           >
-            <img src={createIcon} alt="create-icon" />
+            <ButtonIcon src={createIcon} alt="create-icon" />
           </Button>
         </motion.div>
         <Tooltip variants={buttonVariant}>
@@ -137,11 +145,9 @@ const Navbar = () => {
             buttonHoverColor={theme.colors.primary.darker}
             role="archived-tooltip_button"
           >
-            <img src={dotsIcon} alt="dots-icon" />
+            <ButtonIcon src={dotsIcon} alt="dots-icon" />
           </Button>
-          <AnimatePresence>
-            {renderTooltip(isTooltipOpen)}
-          </AnimatePresence>
+          <AnimatePresence>{renderTooltip(isTooltipOpen)}</AnimatePresence>
         </Tooltip>
       </NavbarStyled>
     </>
