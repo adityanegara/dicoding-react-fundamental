@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import Button from "../atoms/Button/Button";
@@ -8,6 +8,7 @@ import createIcon from "../../assets/icons/plus.svg";
 import dotsIcon from "../../assets/icons/dots.svg";
 import { useTheme } from "@emotion/react";
 import { AnimatePresence, motion } from "framer-motion";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 const NavbarStyled = styled(motion.nav)({
   marginTop: "3vh",
@@ -53,51 +54,51 @@ const buttonVariant = {
 
 const Navbar = () => {
   const [isTooltipOpen, setTooltipOpen] = useState(false);
+  const tooltipRef = useRef(null);
   const theme = useTheme();
+  useOnClickOutside(tooltipRef, () => {
+    setTooltipOpen(false);
+  });
 
   const renderTooltip = (isTooltipOpen) => {
-    return isTooltipOpen ? (
-     <TooltipContent/>
-    ) : null;
+    return isTooltipOpen ? <TooltipContent /> : null;
   };
   return (
-    <>
-      <NavbarStyled initial="hidden" animate="visible" variants={navbarVariant}>
-        <motion.div variants={buttonVariant}>
-          <Button
-            onClick={() => {}}
-            buttonColor={theme.colors.primary.normal}
-            buttonHoverColor={theme.colors.primary.darker}
-            role="search-button"
-          >
-            <ButtonIcon src={searchIcon} alt="search-icon" />
-          </Button>
-        </motion.div>
-        <motion.div variants={buttonVariant}>
-          <Button
-            onClick={() => {}}
-            buttonColor={theme.colors.primary.normal}
-            buttonHoverColor={theme.colors.primary.darker}
-            role="create-button"
-          >
-            <ButtonIcon src={createIcon} alt="create-icon" />
-          </Button>
-        </motion.div>
-        <Tooltip variants={buttonVariant}>
-          <Button
-            onClick={() => {
-              setTooltipOpen(!isTooltipOpen);
-            }}
-            buttonColor={theme.colors.primary.normal}
-            buttonHoverColor={theme.colors.primary.darker}
-            role="archived-tooltip_button"
-          >
-            <ButtonIcon src={dotsIcon} alt="dots-icon" />
-          </Button>
-          <AnimatePresence>{renderTooltip(isTooltipOpen)}</AnimatePresence>
-        </Tooltip>
-      </NavbarStyled>
-    </>
+    <NavbarStyled initial="hidden" animate="visible" variants={navbarVariant}>
+      <motion.div variants={buttonVariant}>
+        <Button
+          onClick={() => {}}
+          buttonColor={theme.colors.primary.normal}
+          buttonHoverColor={theme.colors.primary.darker}
+          role="search-button"
+        >
+          <ButtonIcon src={searchIcon} alt="search-icon" />
+        </Button>
+      </motion.div>
+      <motion.div variants={buttonVariant}>
+        <Button
+          onClick={() => {}}
+          buttonColor={theme.colors.primary.normal}
+          buttonHoverColor={theme.colors.primary.darker}
+          role="create-button"
+        >
+          <ButtonIcon src={createIcon} alt="create-icon" />
+        </Button>
+      </motion.div>
+      <Tooltip ref={tooltipRef} variants={buttonVariant}>
+        <Button
+          onClick={() => {
+            setTooltipOpen(!isTooltipOpen);
+          }}
+          buttonColor={theme.colors.primary.normal}
+          buttonHoverColor={theme.colors.primary.darker}
+          role="archived-tooltip_button"
+        >
+          <ButtonIcon src={dotsIcon} alt="dots-icon" />
+        </Button>
+        <AnimatePresence>{renderTooltip(isTooltipOpen)}</AnimatePresence>
+      </Tooltip>
+    </NavbarStyled>
   );
 };
 
