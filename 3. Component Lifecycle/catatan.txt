@@ -1,0 +1,94 @@
+A) Mounting
+    A.1) Keunaan fase Mounting
+    : 1) Menginisialisasi nilai state
+      2) Me render DOM node
+      3) Membuat Asynchronous javascript request
+      4) Menyiapkan listener
+
+    A.2) Constructor
+    : Pada method ini anda dapat menginisialisasi nilai state.
+        A.2.1) Syntax
+        : constructor(props){
+            super(props);
+            this.state={
+                <nama property>: <value property>
+            }
+          }
+
+        A.2.2) Contoh
+        : constructor(props){
+            super(props);
+            this.state = {
+                name: 'Aditya Negara'
+            }
+          }
+
+    A.3) componentDidMount()
+    : Method ini akan dipanggil ketika komponen pertama kali ditambahkan ke dalam DOM.
+    Method ini tepat untuk memanggil fungsi asynchronous seperti fetch(). Method ini juga
+    bagus untuk menyiapkan listener.
+        A.3.1) Syntax
+        : async componentDidMount(){
+            //syntax
+        }
+
+        A.3.2) Contoh
+        : async componentDidMount(){
+            const users = await fetchUsers();
+            this.setState(()=>{
+                return{
+                    users: users
+                }
+            })
+        }
+
+    A.4) render
+    : Method ini berfungsi untuk mengembalikan dom Node.
+        A.4.1) Syntax
+        : render(){
+            return(
+                <dom node/>
+            )
+        }
+
+        A.4.2) Contoh
+        : render(){
+            return(
+                <div>Hello World!</div>
+            )
+        }
+
+B) Updating
+    B.1) componentDidUpdate
+    : Fungsi untuk memuat ulang data tanpa perlu memasang ulang komponen pada DOM.
+    Fungsi ini dipanggil jika terjadi perubahan state atau menerima nilai props baru.
+    Method ini memiliki dua argumen, yaitu nilai props dan state sebelum diperbarui.
+
+    B.2) Syntax
+    : async componentDidUpdate(prevProp, prevState){
+        //syntax lainnya
+    }
+
+    B.3) Contoh
+    : async componentDidUpdate(prevProp, prevState){
+        if(prevProp.language !== this.props.language){
+            const repositories = await fetchReposWithLanguage(this.props.language);
+        }
+        this.setState(()=>{
+            return {repositories};
+        })
+    }
+
+C) Unmounting
+: Fase ini terjadi ketika komponen hendak dihapus dari DOM. di fase ini anda
+dapat menghapus listener agar tidak terjadi memory leaks.
+
+    C.1) Syntax
+    : componenWillUnMount(){
+        //syntax
+      }
+
+    C.2) Contoh
+    : componentWillUnmount() {
+        this.removeListener();
+      }
