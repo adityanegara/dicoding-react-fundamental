@@ -8,15 +8,15 @@ const putAccessToken = (accessToken) => {
   return localStorage.setItem("accessToken", accessToken);
 };
 
-const fetchWithToken = async (url, options = {}) => {
+async function fetchWithToken(url, options = {}) {
   return fetch(url, {
     ...options,
-    header: {
+    headers: {
       ...options.headers,
       Authorization: `Bearer ${getAccessToken()}`,
     },
   });
-};
+}
 
 const login = async ({ email, password }) => {
   const response = await fetch(`${BASE_URL}/login`, {
