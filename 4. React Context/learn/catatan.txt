@@ -1,0 +1,38 @@
+A) Latar Belakang
+: React menganut unidirectional data passing.
+Yang berarti data dikirimkan satu arah dari parent ke
+child. Namun bila komponen yang membutuhkan data 
+berada sangat dalam, akan terjadinya props drilling.
+Props drilling ini akan membuat kode sulit dikelola karena
+banyak komponent yang menggunakan data tersebut hanya sebagai
+jembatan untuk komponen lain menggunakannya.
+
+B) Definisi React Context
+: React context ialah fitur dalam React untuk mengirimkan
+data antara komponen tanpa harus mengirim satu per satudata pada
+setiap komponentnya.
+
+C) Kegunaan
+: 1) Preferensi warna tema
+  2) Bahasa
+  3) Data pengguna
+
+D) Syntax
+: import React from 'react';
+  const <nama variable context Pascal> = React.createContext(<nilai default>);
+  
+D) Provider
+    D.1) Definisi
+    : Komponen yang memungkinkan kita untuk mendeklarasikan 
+    data apa yang hendak disimpan secara global dalam cakupan hierarki 
+    komponen.
+
+    D.2) Syntax
+    : <Nama Context.Provider value={<data>}>
+        //aplikasi 
+      </Nama Context.Provider>
+
+E) Consumer
+: Komponen yang memungkinkan kita untuk mendapatkan data yang
+disimpan pada Provider di dalam komponen mana pun selama berada di
+hierarki komponen.
