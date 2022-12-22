@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+  transition: ease-in 0.2s;
+}
+
+.dark{
+    background-color: #323232;
+    color: #cccccc;
+}
+
+.light{
+    background-color: #cccccc;
+    color: #323232;
+}
+
+.toggle-theme__button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
