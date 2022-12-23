@@ -1,0 +1,45 @@
+A) Latar Belakang
+: Class component memiliki kekurangan sebagai berikut
+    1. Kita harus memanggil super() pada class component
+    2. Keyword this sulit untuk dipahami 
+    3. Anda harus bind function secara manual.
+    4. Memaksa menata logika dengan orientasi lifecycle. Membuat
+    duplikasi kode.
+    5. Tidak ada cara yang sederhana untuk berbagi kode.
+
+B) useState()
+    B.1) Definisi
+    : Hook yang mengizinkan functional component memanfaatkan state.
+
+    B.2) Syntax Import
+    : import {useState} from "react";
+
+    B.3) Syntax
+    : const [<state>, <function pengubah state>] = useState(<default value>);
+
+    B.4) Contoh
+    : const [count, setCount] = useState(0);
+
+    B.5) Mengubah state
+        B.5.1) Syntax
+        : <function pengubah state>(<nilai>);
+
+        B.5.2) Contoh
+        : setCount(0);
+
+        B.5.3) Syntax Mengubah state dengan nilai sebelumnya
+        : <function pengubah state>((<nilai sebelumnya>) 
+            =>{return //nilai baru})
+
+        B.5.4) Contoh Mengubah state dengan nilai sebelumnya
+        : setCount((count) => count + 1);
+    
+    B.6) Lazy state initialization
+    : Bila nilai awal state diambil dari proses yang
+    "maha". Jangan masukan function ke parameter awal
+    state. melainkan bungkuslah dengan function
+        B.6.1) Contoh salah
+        : const [count, setCount] = useState(getExpensive());
+
+        B.6.2) Contoh benar
+        : count [count, setCount] = useState(()=>getCount());
