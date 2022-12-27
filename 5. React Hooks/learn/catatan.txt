@@ -43,3 +43,45 @@ B) useState()
 
         B.6.2) Contoh benar
         : count [count, setCount] = useState(()=>getCount());
+
+C) useEffect
+    C.1) Definisi
+    : Hook untuk menjalankan efek samping seperti
+    1) Memberikan efek setiap render
+    2) Memberikan efek yang dijalanan satu kali atau berdasarkan perubahan data
+    3) Membersihkan efek
+
+    C.2) Memberikan efek setiap render
+        C.2.1) Syntax
+        : useEffect(() =>{
+            //syntax dijalankan setiap render
+          })
+
+        C.2.2) Contoh
+        : useEffect(()=>{
+            console.log('render ulang')
+        })
+
+    C.3) Memberikan efek satu kali atau berdasarkan perubahan data
+        C.3.1) Memberikan efek satu kali
+        : useEffect(()=>{
+            //syntax dijalankan hanya pertama kali
+        }, [])
+
+        C.3.2) Memberikan efek setiap perubahan data
+        : useEffect(()=>{
+            //syntax dijalankan pertama kali dan hanya ketika state berubah
+        }, [<state perubah>])
+
+    C.4) Membersihkan effek
+    : useEffect(()=>{
+        return() =>{
+            //syntax dijalankan tepat sebelum komponen dihapus dari DOM
+        }
+    })
+
+
+    C.5) Catatan
+    : 1) Efek di dalam useEffect tidak akan berjalan hingga UI ditampilkan pada DOM.
+    Hal ini agar efek tidak menghambat browser dalam menampilkan UI karena jika
+    sampai menghambat tentu akan memperburuk performa website.

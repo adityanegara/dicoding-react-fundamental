@@ -1,8 +1,8 @@
+import Counter from "./useEffect/counter";
+
 const App = () =>{
   return(
-    <div>
-      App
-    </div>
+    <Counter/>
   )
 }
 
