@@ -85,3 +85,12 @@ C) useEffect
     : 1) Efek di dalam useEffect tidak akan berjalan hingga UI ditampilkan pada DOM.
     Hal ini agar efek tidak menghambat browser dalam menampilkan UI karena jika
     sampai menghambat tentu akan memperburuk performa website.
+
+D) useContext
+: Hook yang mengizinkan penggunaan context
+
+    D.1) Syntax
+    : const <nama variable context> = useContext(<context>)
+
+    D.2) Contoh
+    : const theme = useContext(ThemeContext);
