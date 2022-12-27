@@ -94,3 +94,13 @@ D) useContext
 
     D.2) Contoh
     : const theme = useContext(ThemeContext);
+
+E) Custom Hooks
+    E.1) Definisi
+    : Ketika anda memiliki lgoika nonvisual di dalam
+    sebuah komponen yang ingin diterapkan di banyak 
+    komponen, ekstrak logika tersebut menjadi sebuah
+    fungsi hooks.
+
+    E.2) Peraturan
+    : penamaannya diawali dengan kata 'use'
